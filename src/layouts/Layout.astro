@@ -10,7 +10,9 @@ interface Props {
 }
 const { title, description, ogDescription = description } = Astro.props;
 const ogImage = new URL('/assets/hero-ending.jpg', Astro.site).href;
-const canonical = Astro.site?.href;
+// Staging builds (npm run build:staging) set PUBLIC_NOINDEX so search engines skip the page.
+const noindex = import.meta.env.PUBLIC_NOINDEX === 'true';
+const canonical = noindex ? undefined : Astro.site?.href;
 ---
 
 <!doctype html>
@@ -21,6 +23,7 @@ const canonical = Astro.site?.href;
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#0A0C3D" />
+    {noindex && <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />}
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0C3D'/%3E%3Cpath d='M26 12 54 46a22 22 0 1 1-28-34z' fill='%23FF7A1A'/%3E%3C/svg%3E"
