@@ -1,0 +1,28 @@
+---
+import Deco from './Deco.astro';
+
+// One word per C. On hover a matching character pops up beside the word.
+const cs = [
+  { word: 'caliber', char: 'lester', w: 280, h: 'clamp(120px,12.5vw,230px)' },
+  { word: 'creativity', char: 'pia', w: 524, h: 'clamp(105px,10.5vw,190px)' },
+  { word: 'collaboration', char: 'lars', w: 532, h: 'clamp(105px,10.5vw,190px)' },
+  { word: 'camaraderie', char: 'paul', w: 406, h: 'clamp(120px,12.5vw,230px)' },
+  { word: 'connection', char: 'nicole', w: 286, h: 'clamp(120px,12.5vw,230px)' },
+];
+---
+
+<section class="sec five" id="values" aria-labelledby="five-h">
+  <Deco n="01" spin style="--w:clamp(100px,13vw,230px);--r:12deg;right:6%;top:9%" />
+  <Deco n="11" spin hideMobile style="--w:clamp(70px,8.5vw,150px);--r:0deg;right:5%;bottom:10%;--t:90s" />
+  <Deco n="14" hideMobile style="--w:clamp(80px,9vw,170px);--r:8deg;right:27%;bottom:2%;--t:13s" />
+  <div class="wrap">
+    <h2 class="five-label rv" id="five-h">The Five C's We Work By</h2>
+    <ul class="cs">
+      {cs.map((c) => (
+        <li class="cw rv">
+          {c.word}<img class="cchar" src={`/assets/chars/${c.char}.webp`} alt="" aria-hidden="true" width={c.w} height="560" loading="lazy" style={`--h:${c.h}`} />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

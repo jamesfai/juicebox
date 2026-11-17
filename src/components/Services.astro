@@ -1,0 +1,35 @@
+---
+import Deco from './Deco.astro';
+
+const services = [
+  { color: 'c-pink', title: 'Digital Marketing', lead: 'Campaigns that generate measurable results.', items: ['SEO', 'Pay-per-click ads', 'Facebook and Instagram ads', 'Social media marketing', 'Content marketing'] },
+  { color: 'c-yellow', title: 'Creative Design', lead: 'A look that is unmistakably yours.', items: ['Graphic design and layout', 'Illustration', 'Branding'] },
+  { color: 'c-teal', title: 'Creative Production', lead: 'Content that stops the scroll.', items: ['Art and creative direction', 'Product photography', 'Content creation', 'Motion graphics', 'Video editing'] },
+  { color: 'c-blue', title: 'Web Development', lead: 'Sites that look good and work hard.', items: ['Website design', 'UI and UX design', 'Web development'] },
+];
+---
+
+<section class="sec services" id="services">
+  <Deco n="16" hideMobile style="--w:clamp(80px,11vw,190px);--r:14deg;right:8%;top:9%;--t:10s" />
+  <Deco n="19" hideMobile style="--w:clamp(110px,15vw,260px);--r:-4deg;right:24%;top:19%;--t:12s" />
+  <Deco n="18" spin hideMobile style="--w:clamp(70px,9vw,150px);--r:0deg;right:4%;top:22%;--t:75s" />
+  <svg class="wave-line" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"
+    ><path d="M0 20 C 100 0, 200 40, 300 20 S 500 0, 600 20 S 800 40, 900 20 S 1100 0, 1200 20" fill="none" stroke="currentColor" stroke-width="3" pathLength="1"></path></svg
+  >
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="kicker rv">Pick Your Flavor</p>
+      <h2 class="h2 rv">What We Squeeze for You.</h2>
+      <p class="lede rv">From the top of search results to the last frame of a video, one squad handles it.</p>
+    </header>
+    <div class="cards">
+      {services.map((s) => (
+        <article class={`card ${s.color} rv`}>
+          <h3>{s.title}</h3>
+          <p class="lead">{s.lead}</p>
+          <ul>{s.items.map((i) => <li>{i}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

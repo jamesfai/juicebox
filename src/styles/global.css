@@ -117,7 +117,7 @@ main:focus{outline:none}
 @media (max-width:720px),(orientation:portrait) and (max-width:1024px),(orientation:portrait) and (pointer:coarse),(orientation:landscape) and (pointer:coarse) and (max-height:560px),(prefers-reduced-motion:reduce){
   .hero{height:auto}
   .stage{position:relative;height:auto;min-height:100vh;min-height:100svh;display:flex;align-items:flex-start}
-  .poster{background-image:url("hero-ending.jpg");background-size:cover;background-position:48% 100%;background-repeat:no-repeat;inset:auto 0 0 0;height:var(--sh);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 22%);mask-image:linear-gradient(to bottom,transparent,#000 22%)}
+  .poster{background-image:url("/assets/hero-ending.jpg");background-size:cover;background-position:48% 100%;background-repeat:no-repeat;inset:auto 0 0 0;height:var(--sh);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 22%);mask-image:linear-gradient(to bottom,transparent,#000 22%)}
   .stage video,.band,.ring{display:none}
   .static-copy{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;position:relative;width:100%;padding:clamp(96px,16svh,150px) 24px calc(var(--sh)*.7);text-shadow:var(--tshadow)}
   .static-copy::before{content:"";position:absolute;inset:0 -10% 20% -10%;z-index:-1;background:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(5,5,10,.55),rgba(5,5,10,0) 75%)}
@@ -128,7 +128,7 @@ main:focus{outline:none}
 }
 .hero.video-failed{height:auto}
 .hero.video-failed .stage{position:relative;height:auto;min-height:100vh;min-height:100svh;display:flex;align-items:flex-start}
-.hero.video-failed .poster{background-image:url("hero-ending.jpg");background-size:cover;background-position:48% 100%;background-repeat:no-repeat;inset:auto 0 0 0;height:var(--sh);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 22%);mask-image:linear-gradient(to bottom,transparent,#000 22%)}
+.hero.video-failed .poster{background-image:url("/assets/hero-ending.jpg");background-size:cover;background-position:48% 100%;background-repeat:no-repeat;inset:auto 0 0 0;height:var(--sh);-webkit-mask-image:linear-gradient(to bottom,transparent,#000 22%);mask-image:linear-gradient(to bottom,transparent,#000 22%)}
 .hero.video-failed video,.hero.video-failed .band,.hero.video-failed .ring{display:none}
 .hero.video-failed .static-copy{display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;position:relative;width:100%;padding:clamp(96px,16svh,150px) 24px calc(var(--sh)*.7);text-shadow:var(--tshadow)}
 .hero.video-failed .static-copy::before{content:"";position:absolute;inset:0 -10% 20% -10%;z-index:-1;background:radial-gradient(ellipse 70% 60% at 50% 45%,rgba(5,5,10,.55),rgba(5,5,10,0) 75%)}

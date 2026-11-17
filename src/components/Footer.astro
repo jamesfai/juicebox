@@ -1,0 +1,52 @@
+---
+// The lineup of characters stands on the footer line; each hops on hover.
+const lineup = [
+  { char: 'alyanna', w: 364, h: 560, size: 'clamp(90px,10vw,160px)' },
+  { char: 'bry', w: 480, h: 560, size: 'clamp(70px,7.5vw,120px)' },
+  { char: 'armina', w: 350, h: 560, size: 'clamp(100px,11vw,175px)' },
+  { char: 'jhe', w: 196, h: 560, size: 'clamp(100px,11vw,175px)' },
+  { char: 'ina', w: 370, h: 560, size: 'clamp(95px,10.5vw,165px)' },
+  { char: 'moody', w: 238, h: 560, size: 'clamp(80px,9vw,140px)' },
+  { char: 'jorvi', w: 218, h: 560, size: 'clamp(95px,10.5vw,165px)' },
+  { char: 'edryl', w: 560, h: 514, size: 'clamp(55px,6vw,95px)' },
+];
+
+const links = [
+  { href: '#services', label: 'Services' },
+  { href: '#about', label: 'About' },
+  { href: '#process', label: 'Process' },
+  { href: '#faq', label: 'FAQ' },
+];
+
+// Simple hand-drawn brand glyphs so no icon library is needed.
+const socials = [
+  { href: 'https://www.facebook.com/juicebox.ph', label: 'Juicebox on Facebook', svg: '<path fill="currentColor" d="M13.4 21v-7.6h2.6l.4-3h-3V8.5c0-.9.3-1.5 1.5-1.5h1.6V4.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.7v3h2.6V21z"/>' },
+  { href: 'https://www.instagram.com/juiceboxdigital.ph/', label: 'Juicebox on Instagram', svg: '<rect x="4" y="4" width="16" height="16" rx="4.6" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="3.6" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="16.9" cy="7.1" r="1.15" fill="currentColor"/>' },
+  { href: 'https://www.linkedin.com/company/juicebox-digital-marketing/', label: 'Juicebox on LinkedIn', svg: '<circle cx="6.6" cy="6.5" r="1.8" fill="currentColor"/><rect x="5" y="9.4" width="3.2" height="9.6" rx=".4" fill="currentColor"/><path fill="currentColor" d="M10.3 9.4h3v1.4c.5-.9 1.6-1.6 3.1-1.6 2.7 0 3.5 1.8 3.5 4.1V19h-3.2v-5.1c0-1.2-.2-2.2-1.5-2.2s-1.7 1-1.7 2.2V19h-3.2z"/>' },
+  { href: 'https://www.tiktok.com/@juicebox.ph', label: 'Juicebox on TikTok', svg: '<path fill="currentColor" d="M16.6 3h-3.2v11.7a2.5 2.5 0 1 1-2.5-2.5c.3 0 .5 0 .8.1V8.9a5.8 5.8 0 1 0 4.9 5.7V9.1c1.1.8 2.4 1.3 3.8 1.3V7.2c-1.8-.1-3.4-1.6-3.8-4.2z"/>' },
+];
+---
+
+<footer class="foot">
+  <div class="lineup" aria-hidden="true">
+    {lineup.map((c) => (
+      <img src={`/assets/chars/${c.char}.webp`} alt="" width={c.w} height={c.h} loading="lazy" style={`--h:${c.size}`} />
+    ))}
+  </div>
+  <div class="wrap foot-grid">
+    <a class="brand" href="#top" aria-label="Juicebox, back to top"
+      ><img src="/assets/img/juicebox-logo.webp" width="150" height="43" alt="Juicebox" /></a
+    >
+    <nav aria-label="Footer">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+    <nav class="socials" aria-label="Social">
+      {socials.map((s) => (
+        <a href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} title={s.label}>
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" set:html={s.svg} />
+        </a>
+      ))}
+    </nav>
+  </div>
+  <p class="legal wrap">&copy; 2026 Juicebox Digital Marketing. The opening animation was made with AI.</p>
+</footer>

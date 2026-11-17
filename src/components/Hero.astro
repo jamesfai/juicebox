@@ -1,0 +1,50 @@
+---
+// The scroll-scrubbed hero. app.js reads the data-a / data-b scroll ranges on each band,
+// splits the data-split headlines into animated words, and drives the video from scroll.
+const CTA = 'https://juicebox.ph/contact-us/';
+const bands = [
+  { side: 'left', a: '0', b: '0.24', first: true, fx: 'scatter', em: 'splash', title: 'Make a Splash Online.', sub: 'Creative marketing and design for brands that want to be remembered.' },
+  { side: 'right', a: '0.26', b: '0.48', fx: 'punch', em: 'squeezed.', title: 'Ideas, Freshly Squeezed.', sub: 'Marketing and design brewed together in one squad.' },
+  { side: 'left', a: '0.50', b: '0.74', fx: 'drift', em: 'read.', title: 'Results You Can Read.', sub: 'Clear goals up front. A plain report at the end.' },
+];
+---
+
+<h1 class="sr">Juicebox: creative digital marketing and design for brands that want to be remembered</h1>
+
+<section class="hero" id="top" aria-label="Introduction">
+  <div class="stage" id="stage">
+    <div class="poster" id="poster"></div>
+    <video id="hero" preload="none" muted playsinline aria-hidden="true" tabindex="-1"></video>
+    <div class="scrim"></div>
+    <div class="blend" aria-hidden="true"></div>
+    <svg class="ring" id="ring" viewBox="0 0 48 48" aria-hidden="true"
+      ><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-dasharray="126" style="stroke-dashoffset:var(--ld,126)"></circle></svg
+    >
+
+    <!-- scrub bands -->
+    {bands.map((b) => (
+      <div class={`band ${b.side}`} data-a={b.a} data-b={b.b} data-first={b.first ? '1' : undefined}>
+        <p class="h-display" data-split data-fx={b.fx} data-em={b.em}>{b.title}</p>
+        <p class="sub">{b.sub}</p>
+      </div>
+    ))}
+    <div class="band settle" data-a="0.78" data-b="1" data-last="1">
+      <p class="h-display" data-split data-fx="rise" data-em="you">Ready When You Are.</p>
+      <p class="sub">Tell us where your brand is headed.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href={CTA}>Book a Discovery Call</a>
+        <a class="btn btn-ghost" href="#process">See How We Work</a>
+      </div>
+    </div>
+
+    <!-- static hero copy (phones, portrait tablets, reduced motion, video failed) -->
+    <div class="static-copy">
+      <p class="h-display">Make a <em>Splash</em> Online.</p>
+      <p class="sub">Creative marketing and design for brands that want to be remembered.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href={CTA}>Book a Discovery Call</a>
+        <a class="btn btn-ghost" href="#services">What We Do</a>
+      </div>
+    </div>
+  </div>
+</section>

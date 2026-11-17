@@ -1,0 +1,13 @@
+---
+// A decorative brand shape. Hidden from assistive tech, drifts or spins slowly (see global.css).
+interface Props {
+  n: string; // shape file number, e.g. "01"
+  style: string; // CSS custom properties and position, e.g. "--w:160px;--r:12deg;right:6%;top:9%"
+  spin?: boolean;
+  hideMobile?: boolean;
+}
+const { n, style, spin = false, hideMobile = false } = Astro.props;
+const cls = ['deco', spin && 'spin', hideMobile && 'hide-m'].filter(Boolean).join(' ');
+---
+
+<img class={cls} src={`/assets/shapes/shape-${n}.webp`} alt="" aria-hidden="true" width="600" style={style} />

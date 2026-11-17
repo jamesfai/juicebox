@@ -1,0 +1,56 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  ogDescription?: string;
+}
+const { title, description, ogDescription = description } = Astro.props;
+const ogImage = new URL('/assets/hero-ending.jpg', Astro.site).href;
+const canonical = Astro.site?.href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0A0C3D" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A0C3D'/%3E%3Cpath d='M26 12 54 46a22 22 0 1 1-28-34z' fill='%23FF7A1A'/%3E%3C/svg%3E"
+    />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a class="skip" href="#main">skip to content</a>
+    <div class="env" aria-hidden="true">
+      <i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="grain"></i>
+    </div>
+
+    <Nav />
+    <slot />
+    <Footer />
+
+    <script>
+      // The scroll-scrub hero, text choreography, squeeze interaction and FAQ accordion.
+      import '../scripts/app.js';
+    </script>
+  </body>
+</html>

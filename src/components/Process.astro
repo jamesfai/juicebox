@@ -1,0 +1,46 @@
+---
+import Deco from './Deco.astro';
+
+// --s is the squeeze progress at which each step lights up (see the hold interaction in app.js).
+const steps = [
+  { s: '.04', title: 'Discovery', text: 'We start with a meeting and our discovery workbook, so we understand your goals, your audience and what you need.' },
+  { s: '.24', title: 'Concept and Strategy', text: 'A creative strategy and project plan as unique as your brand, with timelines, milestones and deliverables for your niche.' },
+  { s: '.48', title: 'Production', text: 'Brainstorms, drafts and concepts brewed in our creative lab, then shown to you for feedback and approval.' },
+  { s: '.72', title: 'Delivery', text: 'We present the finished work, make the revisions, and hand it over polished.' },
+  { s: '.94', title: 'Analysis', text: 'After launch we collect your feedback, track the KPIs we agreed on, and send you a full report on the results.' },
+];
+---
+
+<section class="sec process" id="process">
+  <Deco n="21" spin hideMobile style="--w:clamp(70px,9vw,150px);--r:0deg;left:2%;bottom:6%;--t:85s" />
+  <Deco n="04" hideMobile style="--w:clamp(110px,14vw,240px);--r:10deg;right:2%;top:3%;--t:11s" />
+  <div class="wrap proc-grid">
+    <div class="proc-side">
+      <p class="kicker rv">Behind the Squeeze</p>
+      <h2 class="h2 rv">Five Steps. No Black Box.</h2>
+      <p class="lede rv">Squeeze the box and watch the plan pour out, one step at a time.</p>
+      <div class="squeeze rv" id="squeeze">
+        <svg class="box alive" viewBox="0 0 120 190" role="img" aria-label="A juice box filling with juice as you hold the button">
+          <defs><clipPath id="boxclip"><path d="M24 52h72v118a10 10 0 0 1-10 10H34a10 10 0 0 1-10-10z"></path></clipPath></defs>
+          <path d="M24 52h72v118a10 10 0 0 1-10 10H34a10 10 0 0 1-10-10z" fill="#141866" stroke="#FFF6EA" stroke-width="3"></path>
+          <g clip-path="url(#boxclip)"><rect class="juice" x="20" y="48" width="80" height="136" fill="#FF7A1A"></rect></g>
+          <path d="M24 52 40 32h40l16 20z" fill="#2644C6" stroke="#FFF6EA" stroke-width="3" stroke-linejoin="round"></path>
+          <path d="M70 34 78 8h22" fill="none" stroke="#F47084" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M58 100 80 130a16 16 0 1 1-22-30z" fill="#FFF6EA" opacity=".92"></path>
+        </svg>
+        <button class="btn btn-primary hold" id="holdBtn" type="button" aria-describedby="holdHint"><span class="hold-label">Hold to Squeeze</span></button>
+        <img class="pchar alive" src="/assets/chars/kat.webp" alt="" aria-hidden="true" width="422" height="560" loading="lazy" />
+        <p class="hint" id="holdHint">Press and hold. Let go early and the juice settles back. On a keyboard, hold space.</p>
+      </div>
+    </div>
+    <ol class="steps" id="steps">
+      {steps.map((st, i) => (
+        <li style={`--s:${st.s}`}>
+          <span class="num">{String(i + 1).padStart(2, '0')}</span>
+          <h3>{st.title}</h3>
+          <p>{st.text}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

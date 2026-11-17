@@ -1,0 +1,34 @@
+---
+import Deco from './Deco.astro';
+
+const tiles = [
+  { cls: 't1', src: 'team-ally', w: 450, h: 350, alt: 'Juicebox team member in a pink jacket' },
+  { cls: 't2', src: 'jbx-character-celina', w: 650, h: 585, alt: 'Illustrated character in a pink bucket hat' },
+  { cls: 't3', src: 'team-bry', w: 450, h: 350, alt: 'Smiling Juicebox team member' },
+  { cls: 't4', src: 'team-james', w: 450, h: 350, alt: 'Juicebox team member on a blue background' },
+  { cls: 't5', src: 'jbx-character-bryan', w: 519, h: 331, alt: 'Illustrated tiger character' },
+  { cls: 't6', src: 'team-lara', w: 450, h: 350, alt: 'Juicebox team member with glasses' },
+];
+---
+
+<section class="sec about" id="about">
+  <Deco n="10" hideMobile style="--w:clamp(60px,8vw,130px);--r:0deg;left:37%;top:5%;--t:8s" />
+  <Deco n="20" spin hideMobile style="--w:clamp(70px,9vw,150px);--r:0deg;right:2.5%;bottom:5%;--t:80s" />
+  <Deco n="05" hideMobile style="--w:clamp(80px,10vw,170px);--r:-10deg;left:3%;bottom:4%;--t:12s" />
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <p class="kicker rv">Meet the Squad</p>
+      <h2 class="h2 rv">Creative Digital Experts, With a Dash of Fun.</h2>
+      <p class="lede rv">Infusing youthful energy with years of expertise, our team brings fresh ideas to the table and a dash of fun to every collaboration.</p>
+      <p class="rv">We are a squad of digital and creative people committed to seeing your brand thrive, and to sparking a few conversations while it does.</p>
+      <a class="btn btn-primary rv" href="https://juicebox.ph/contact-us/">Come Say Hi</a>
+    </div>
+    <div class="wall" aria-label="The Juicebox squad">
+      {tiles.map((t) => (
+        <figure class={`tile ${t.cls} rv`}>
+          <img src={`/assets/img/${t.src}.webp`} width={t.w} height={t.h} loading="lazy" alt={t.alt} />
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

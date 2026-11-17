@@ -1,0 +1,18 @@
+---
+const links = [
+  { href: '#services', label: 'Services' },
+  { href: '#about', label: 'About' },
+  { href: '#process', label: 'Process' },
+  { href: '#faq', label: 'FAQ' },
+];
+---
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Juicebox, back to top"
+    ><img src="/assets/img/juicebox-logo.webp" width="150" height="43" alt="Juicebox" /></a
+  >
+  <nav class="links" aria-label="Main">
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+  </nav>
+  <a class="btn btn-ghost nav-cta" href="https://juicebox.ph/contact-us/">Discovery Call</a>
+</header>

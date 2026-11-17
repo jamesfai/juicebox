@@ -8,9 +8,9 @@
   function rng(seed) { let s = seed >>> 0; return () => (s = (s * 1664525 + 1013904223) >>> 0) / 4294967296; }
 
   const hero = $('#top'), stage = $('#stage'), video = $('#hero'), poster = $('#poster'), ring = $('#ring');
-  const VIDEO_URL = 'assets/hero-scrub.mp4';
+  const VIDEO_URL = '/assets/hero-scrub.mp4';
   const VIDEO_BYTES = 2233026;                       // fallback when Content-Length is missing
-  const POSTER_URL = 'assets/hero-poster.jpg';
+  const POSTER_URL = '/assets/hero-poster.jpg';
 
   /* ---------- split headline text (seeded, identical on every load) ---------- */
   $$('[data-split]').forEach((el, idx) => {

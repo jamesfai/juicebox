@@ -1,0 +1,29 @@
+---
+import Deco from './Deco.astro';
+
+// Opened and closed smoothly, one at a time, by the FAQ block in app.js.
+const faqs = [
+  { q: "How Will I Know It's Working?", a: 'We agree on goals and KPIs in discovery, then track them after launch. You get a full report on the results, not a pile of screenshots.' },
+  { q: 'What Happens on the Discovery Call?', a: 'We learn your goals, your audience and what you need. Our discovery workbook keeps it organized, and it becomes the base for your strategy.' },
+  { q: 'Can One Team Handle Marketing and Design?', a: 'Yes. Marketing, design, production and web all sit inside one squad, so the campaign and the creative are planned together.' },
+  { q: 'How Long Does a Project Take?', a: 'It depends on the scope. Timelines and milestones are set in the concept and strategy step, so you know the dates before production starts.' },
+  { q: 'What Does It Cost?', a: 'Every project is scoped to your goals, so we talk numbers on the discovery call.' },
+];
+---
+
+<section class="sec faq" id="faq">
+  <Deco n="01" spin hideMobile style="--w:clamp(70px,9vw,150px);--r:0deg;left:30%;top:7%;--t:80s" />
+  <Deco n="17" hideMobile style="--w:clamp(50px,6vw,100px);--r:0deg;left:5%;bottom:10%;--t:8s" />
+  <div class="wrap faq-grid">
+    <header>
+      <p class="kicker rv">Before You Pour</p>
+      <h2 class="h2 rv">Questions People Ask First.</h2>
+      <img class="fchar rv" src="/assets/chars/ru.webp" alt="" aria-hidden="true" width="248" height="560" loading="lazy" />
+    </header>
+    <div class="qa">
+      {faqs.map((f) => (
+        <details class="rv"><summary>{f.q}</summary><p>{f.a}</p></details>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,34 @@
+---
+// Hover-expand portfolio. Cards are CSS-only: the first is open at rest, the hovered or focused one opens.
+const clients = [
+  { cls: 'p-yellow', logo: 'logo-bigs-coffee', name: "Big's Coffee", tag: 'Big on flavor.', char: 'moody', cw: 238, shape: '02', pos: 'right:-14%;top:-6%;--r:14deg' },
+  { cls: 'p-mint', logo: 'logo-daily-grind-coffee', name: 'Daily Grind Coffee', tag: 'Grind. Pour. Repeat.', char: 'jhe', cw: 196, shape: '20', pos: 'right:-12%;top:-4%;--r:-10deg' },
+  { cls: 'p-lav', logo: 'logo-accesssgov', name: 'AccessGov', tag: 'Always within reach.', char: 'ina', cw: 370, shape: '01', pos: 'right:-16%;top:-8%;--r:8deg' },
+  { cls: 'p-pink', logo: 'logo-gusto-deli', name: 'Gusto Deli', tag: 'A little gusto goes a long way.', char: 'paul', cw: 406, shape: '21', pos: 'right:-14%;top:-6%;--r:-12deg' },
+  { cls: 'p-peach', logo: 'logo-janussteel', name: 'Janus Steel', tag: 'Built tough, looks sharp.', char: 'lester', cw: 280, shape: '19', pos: 'right:-10%;top:2%;--r:-6deg' },
+  { cls: 'p-blue', logo: 'logo-filweb-asia', name: 'Filweb Asia', tag: 'Online, all the way.', char: 'lars', cw: 532, shape: '16', pos: 'right:-12%;top:-4%;--r:18deg' },
+];
+---
+
+<section class="sec proof" id="work">
+  <div class="wrap">
+    <div class="proof-head">
+      <div>
+        <p class="kicker rv">Brands That Took a Sip</p>
+        <h2 class="h2 rv">Freshly Poured Work.</h2>
+        <p class="lede rv">A few of the brands we've teamed up with. Hover a card to meet them.</p>
+      </div>
+      <a class="btn btn-ghost proof-link rv" href="https://juicebox.ph/contact-us/">Start Yours</a>
+    </div>
+    <div class="reel rv">
+      {clients.map((c) => (
+        <article class={`pcard ${c.cls} rvc`} tabindex="0" aria-label={c.name}>
+          <img class="pshape" src={`/assets/shapes/shape-${c.shape}.webp`} alt="" aria-hidden="true" width="600" loading="lazy" style={c.pos} />
+          <span class="plaque"><img src={`/assets/img/${c.logo}.webp`} alt={c.name} height="72" loading="lazy" /></span>
+          <div class="pinfo"><h3>{c.name}</h3><p>{c.tag}</p></div>
+          <img class="pcast" src={`/assets/chars/${c.char}.webp`} alt="" aria-hidden="true" width={c.cw} height="560" loading="lazy" />
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
